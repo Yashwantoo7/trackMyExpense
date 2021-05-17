@@ -3,11 +3,18 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import TransactionContextProvider from './context/TransactionContext';
+import {BrowserRouter} from 'react-router-dom';
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <BrowserRouter>
+  <TransactionContextProvider>
+    <React.StrictMode>
+          <App />
+    </React.StrictMode>
+  </TransactionContextProvider>
+  </BrowserRouter>  
+  ,
   document.getElementById('root')
 );
 

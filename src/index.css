@@ -5,9 +5,135 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url(./assets/background.png);
+    background-size: 'cover';
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+.home{
+  display: flex;
+  flex-wrap: wrap;
+   justify-content: space-between;
+   align-items: center;
+   height: 100vh;
+   margin-top: 10px;
+   margin-bottom: 10px;
+}
+.card{
+  width: auto;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: rgb(255, 255, 255);
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.card-body{
+  padding: 20px;
+  width: auto;
+  max-width: auto;
+  text-align: center;
+  font-family: Arial;
+  margin-bottom: 5px;
+}
+
+.title{
+  font-size: 2rem;
+  font-family: Arial, Helvetica, sans-serif;
+  margin-bottom: 10px;
+}
+.balance{
+  font-weight: lighter;
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+.form-container{
+  display: grid;
+}
+
+label{
+  margin-top: 10px;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: bold;
+}
+
+select{
+  outline: 0;
+  margin-top: 5px;
+  border-width: 0 0 2px;
+  border-color: blue;
+  padding: 10px;
+  box-shadow:0 0 15px 4px rgba(0,0,0,0.06);
+}
+
+select:focus {
+  border-color: green
+}
+input{
+  outline: 0;
+  margin-top: 5px;
+  border-width: 0 0 2px;
+  border-color: blue;
+  padding: 10px;
+  box-shadow:0 0 15px 4px rgba(0,0,0,0.06);
+  font-family:inherit;
+  font-size: inherit;
+}
+
+input:focus {
+  border-color: green
+}
+
+button{
+  margin-top: 10px;
+  font-size:16px;
+  font-weight: bold;
+  background-color: rgb(236, 232, 232);
+  padding: 10px 24px;
+  border-radius: 30px;
+  border: black;
+  transition-duration: 0.4s;
+  box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2), 0 3px 10px 0 rgba(0,0,0,0.19);
+}
+button:hover {
+  cursor: pointer;
+  background-color: #000000cc; /* Green */
+  color: rgb(255, 249, 249);
+}
+table {
+  background-color: rgb(255, 255, 255);
+  border-spacing: auto;
+}
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: auto;
+}
+td{  
+  font-style: oblique;
+  font-weight: 500;
+}
+
+#even{
+  background-color:#8a8a88;
+}
+.heading{
+  color: rgb(207, 255, 145);
+  font-family: Georgia, sans-serif;
+  font-size: 5em;
+  letter-spacing: -2px;
+  margin-bottom: 10px;
+}
+
+.table{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
