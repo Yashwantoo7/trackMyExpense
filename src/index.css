@@ -112,7 +112,7 @@ table, th, td {
 }
 
 th, td {
-  padding: auto;
+  padding: 10px;
 }
 td{  
   font-style: oblique;
@@ -136,4 +136,21 @@ td{
   justify-content: center;
   align-items: center;
   height: 100vh;
+  min-width: fit-content;
+}
+
+.auth-card{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.auth{
+  padding: 30px;
+  background-color: #75769e;
+  border-radius: 15px;
+  transition-duration: 0.4s;
+  box-shadow: 0 8px 20px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }

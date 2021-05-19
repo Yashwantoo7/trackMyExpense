@@ -11,7 +11,9 @@ const TransactionContextProvider = (props) => {
     const [category,setCategory]=useState('Business');
     const [amount,setAmount] = useState(0);
     const [date,setDate] = useState(formateDate(new Date()));
-    
+    const [signin,setSignin] = useState(false)
+    const [userInfo,setUserInfo] = useState({});
+
     const findChartData = (trans,title)=>{
         resetCategories();
          const transactionsIncomeType = trans.filter((t)=>t.type===title);
@@ -42,7 +44,9 @@ const TransactionContextProvider = (props) => {
                 category,setCategory,
                 amount,setAmount,
                 date,setDate,
-                findChartData
+                findChartData,
+                signin,setSignin,
+                userInfo,setUserInfo,
             }}>
             {props.children}
         </TransactionContext.Provider>
