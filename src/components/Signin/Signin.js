@@ -2,9 +2,10 @@ import React, { useContext, useEffect, useState } from 'react'
 import { TransactionContext } from '../../context/TransactionContext'
 import Axios from '../../api';
 import { useHistory } from 'react-router';
+import { Link } from 'react-router-dom';
 
 const Signin = () => {
-    const {signin,setSignin,setUserInfo,setTransactions} = useContext(TransactionContext);
+    const {transactions,signin,setSignin,userInfo,setUserInfo,setTransactions} = useContext(TransactionContext);
     const [email,setEmail] = useState('');
     const [password,setPassword] = useState('');
 
@@ -12,6 +13,10 @@ const Signin = () => {
 
     useEffect(()=>{
         if(signin){
+            localStorage.setItem('userInfo',JSON.stringify(userInfo));
+            localStorage.setItem('transactions',JSON.stringify(transactions))
+            localStorage.setItem('loggedIn',JSON.stringify(true))
+            
             history.push('/');       
         } 
     },[signin])
@@ -32,7 +37,8 @@ const Signin = () => {
                 })
                 expense = expense.data.data
                 // const filteredIncome = 
-                setTransactions([income,expense]);
+                income=income.concat(expense)
+                setTransactions(income);
                 setSignin(true)
             };
         }
@@ -43,15 +49,17 @@ const Signin = () => {
     return (
         <div className='auth-card'>
                 <div className='card-body auth' >
-                    <div className='title'><p>Signin </p></div>
+                    <div className='title'><p>Sign-In </p></div>
                     <form className='form-container'>
                         <label>Email</label>
                         <input type='email' placeholder='email' onChange={(e)=>setEmail(e.target.value)}/>
                         <label>Password</label>
                         <input type='password' placeholder='password' onChange={(e)=>setPassword(e.target.value)}/>
                         <button type='submit' onClick={(e)=>handleSignin(e)}>Signin</button>
-                    </form>               
+                    </form>   
+                    <Link className='signup-link' to='signup'>Signup</Link>            
                 </div>
+               
         </div>
     )
 }

@@ -22,7 +22,7 @@ const ExpenseDetails = () => {
                         <th>Category</th>
                         <th>Amount</th>
                     </tr>
-                    {validTrans.map((t,ind)=><tr id={ind===0?'even':'odd'} key={t.id}>
+                    {validTrans.map((t,ind)=><tr id={ind%2===0?'even':'odd'} key={t.id}>
                         <td>{t.type}</td>
                         <td>{t.id}</td>
                         <td>{t.date}</td>

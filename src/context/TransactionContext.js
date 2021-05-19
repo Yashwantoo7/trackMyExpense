@@ -6,13 +6,18 @@ export const TransactionContext = createContext();
 
 const TransactionContextProvider = (props) => {
 
-    const [transactions,setTransactions]=useState([{"amount":77,"category":"Lottery","type":"Income","date":"2021-02-14","id":"34f1bba5-6c49-43f1-9a00-8a1d07363e85"},{"amount":55,"category":"Shopping","type":"Expense","date":"2021-02-14","id":"708e9bf9-709b-4ed3-b095-05dc6393cb55"}]);
+    const inititalState={
+        trans:localStorage.getItem('transactions')?JSON.parse(localStorage.getItem('transactions')):[],
+        user:localStorage.getItem('userInfo')?JSON.parse(localStorage.getItem('userInfo')):{},
+        loggedIn:localStorage.getItem('loggedIn')?JSON.parse(localStorage.getItem('loggedIn')):false
+    }
+    const [transactions,setTransactions]=useState(inititalState.trans);
     const [transactionType,setTransactoinType]=useState('Income')
     const [category,setCategory]=useState('Business');
     const [amount,setAmount] = useState(0);
     const [date,setDate] = useState(formateDate(new Date()));
-    const [signin,setSignin] = useState(false)
-    const [userInfo,setUserInfo] = useState({});
+    const [signin,setSignin] = useState(inititalState.loggedIn)
+    const [userInfo,setUserInfo] = useState(inititalState.user);
 
     const findChartData = (trans,title)=>{
         resetCategories();
