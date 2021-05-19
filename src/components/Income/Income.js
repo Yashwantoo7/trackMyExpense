@@ -23,7 +23,7 @@ const Income = () => {
     return (
         <div className='card'>
                 <div className='card-body'>
-                    <div className='title'><p>Income ${total}</p></div>       
+                    <div className='balance' style={{outlineColor: 'rgba(13, 197, 38)'}}><p>Income Rs.<p style={{color:'green'}}>{total}</p></p></div>       
                     <Doughnut data={chartData}/>
                     <button onClick={()=>incomeDetails()}>Details</button>
                 </div>

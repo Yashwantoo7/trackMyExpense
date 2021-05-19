@@ -10,7 +10,8 @@ const Main = () => {
     const {category,setCategory}=useContext(TransactionContext)
     const {amount,setAmount} = useContext(TransactionContext)
     const {transactions,setTransactions} = useContext(TransactionContext)
-    
+    const {totalIncome,setTotalIncome,totalExpense,setTotalExpense} = useContext(TransactionContext);
+
     const {userInfo,date,setDate} = useContext(TransactionContext)
     
     const history = useHistory();
@@ -61,10 +62,13 @@ const Main = () => {
         }
     }
     return (
-        <div className='card'>
+        <div className='card' style={{paddingLeft:'20px',paddingRight:'20px'}}>
                 <div className='card-body'>
                     <div className='title'><p>Expense Tracker </p></div>
-                    <div ><p className='balance'>Total Balance $100</p></div>
+                    <div ><p className='balance' style={{
+                                outlineColor:totalIncome-totalExpense>0?'rgb(13, 197, 38)':'rgb(245, 30, 30)'}}>
+                                Overall Savings Rs.<p style={{color:totalIncome-totalExpense>0?'green':'red'}}>
+                                {totalIncome-totalExpense}</p></p></div>
                     <form className='form-container'>
                         <label>Type</label>
                        <select value={transactionType} onChange={(e)=>handleType(e)}>

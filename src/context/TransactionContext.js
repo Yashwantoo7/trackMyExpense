@@ -18,6 +18,8 @@ const TransactionContextProvider = (props) => {
     const [date,setDate] = useState(formateDate(new Date()));
     const [signin,setSignin] = useState(inititalState.loggedIn)
     const [userInfo,setUserInfo] = useState(inititalState.user);
+    const [totalIncome,setTotalIncome] = useState(0);
+    const [totalExpense,setTotalExpense] = useState(0);
 
     const findChartData = (trans,title)=>{
         resetCategories();
@@ -28,7 +30,12 @@ const TransactionContextProvider = (props) => {
             const category = categories.find((c)=>c.type===t.category);
             if(category)category.amount+=Number(t.amount);
         })
-
+        if(title==='Income'){
+            setTotalIncome(total)
+        }
+        else{
+            setTotalExpense(total);
+        }
         const filteredCategories = categories.filter((t)=>t.amount>0);
 
         const chartData={
@@ -52,6 +59,8 @@ const TransactionContextProvider = (props) => {
                 findChartData,
                 signin,setSignin,
                 userInfo,setUserInfo,
+                totalExpense,setTotalExpense,
+                totalIncome,setTotalIncome
             }}>
             {props.children}
         </TransactionContext.Provider>
