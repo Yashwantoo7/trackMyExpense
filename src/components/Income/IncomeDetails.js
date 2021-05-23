@@ -1,19 +1,27 @@
 import React, { useContext, useEffect, useState } from 'react'
+import { Bar } from 'react-chartjs-2';
 import { TransactionContext } from '../../context/TransactionContext'
+import { findBarData } from '../../utils';
+
 
 const IncomeDetails = () => {
 
     const {transactions} = useContext(TransactionContext);
     const [validTrans,setValidTrans] = useState([]);
+    const [barData,setBarData] = useState({});
 
     useEffect(()=>{
         setValidTrans(transactions.filter((t)=>t.type==='Income'))
+        setBarData(findBarData(transactions,'Income'));
     },[transactions])
 
     return (
-        <div className='table'>
+        <div>            
+            <div className='bar'>
+            <Bar data={barData.data} options={barData.options}/>
+            </div>
+            <div className='table'>
             <table>
-                <caption className='heading'>Income</caption>
                 <tbody>
                     <tr>
                         <th>Type</th>
@@ -32,6 +40,8 @@ const IncomeDetails = () => {
                 </tbody>                
             </table>
         </div>
+        </div>
+        
     )
 }
 

@@ -22,7 +22,7 @@ const Expense = () => {
     return (
         <div className='card'>
                 <div className='card-body'>
-                    <div className='balance' style={{outlineColor: 'rgb(245, 25, 30)'}}><p>Expense Rs.<p style={{color:'red'}}>{total}</p></p></div>       
+                    <div className='balance' style={{outlineColor: 'rgb(245, 25, 30)'}}>Expense Rs.<p style={{color:'red'}}>{total}</p></div>       
                     <Doughnut data={chartData}/>
                     <button onClick={()=>expenseDetails()}>Details</button>
                 </div>

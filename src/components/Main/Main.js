@@ -65,10 +65,10 @@ const Main = () => {
         <div className='card' style={{paddingLeft:'20px',paddingRight:'20px'}}>
                 <div className='card-body'>
                     <div className='title'><p>Expense Tracker </p></div>
-                    <div ><p className='balance' style={{
+                    <div ><div className='balance' style={{
                                 outlineColor:totalIncome-totalExpense>0?'rgb(13, 197, 38)':'rgb(245, 30, 30)'}}>
                                 Overall Savings Rs.<p style={{color:totalIncome-totalExpense>0?'green':'red'}}>
-                                {totalIncome-totalExpense}</p></p></div>
+                                {totalIncome-totalExpense}</p></div></div>
                     <form className='form-container'>
                         <label>Type</label>
                        <select value={transactionType} onChange={(e)=>handleType(e)}>
